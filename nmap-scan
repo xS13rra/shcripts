@@ -1,0 +1,5 @@
+#!/bin/bash
+P=$(sudo nmap -sS -p- $1 | grep ^[0-9] | cut -d '/' -f 1 | tr '\n' ',' | sed s/,$//)
+
+#sudo nmap -sS -oA $1 -A -p$P $1
+sudo nmap -sS -sV -sC -oN $1 -p$P $1
